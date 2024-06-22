@@ -24,6 +24,7 @@ list_of_file = [
     "Dockerfile",
     "requirements.txt",
     "setup.py"
+    "artifacts/"
 
 ]
 
