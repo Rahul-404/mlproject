@@ -1,7 +1,10 @@
-numpy
+numpy==1.26.4
 pandas
 python-dotenv # helps to read environment variables to get data
 mysql-connector-python # this sql conector
 pymysql # used to manupulate sql data useing sql queries, here we have inbuild function to convert to dataframe
 scikit-learn
+seaborn
+catboost
+xgboost
 # -e .
