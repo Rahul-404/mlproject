@@ -8,5 +8,6 @@ seaborn
 catboost
 xgboost
 mlflow
+dill
 dagshub
 # -e .

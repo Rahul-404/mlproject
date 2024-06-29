@@ -1,12 +1,11 @@
-import os
-import sys
 from src.mlproject.exception import CustomeException
 from src.mlproject.logger import logging
 import pandas as pd
 from dotenv import load_dotenv
 import pymysql
-
+import os
 import pickle
+import dill
 import numpy as np
 
 from sklearn.model_selection import GridSearchCV
@@ -74,5 +73,13 @@ def evaluate_models(X_train, y_train, X_test, y_test, models, param):
             report[list(models.keys())[i]] = test_model
 
         return report
+    except Exception as e:
+        raise CustomeException(e, sys)
+    
+
+def load_object(file_path):
+    try:
+        with open(file_path, "rb") as file_obj:
+            return dill.load(file_obj)
     except Exception as e:
         raise CustomeException(e, sys)
