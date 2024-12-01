@@ -1,3 +1,3 @@
 ## End to End Data Science Project
 
-aws deployment
+aws deployment on ECR 
