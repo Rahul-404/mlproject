@@ -52,6 +52,7 @@ class ModelTrainer:
                 "Decision Tree": DecisionTreeRegressor(),
                 "Gradient Boosting": GradientBoostingRegressor(),
                 "Linear Regression": LinearRegression(),
+                # "K-Neighbours Classifier": KNeighborsRegressor(),
                 "XGBRegressor" : XGBRegressor(),
                 "CatBoosting Regressor": CatBoostRegressor(verbose=False),
                 "AdaBoost Regressor": AdaBoostRegressor()
@@ -119,10 +120,11 @@ class ModelTrainer:
 
             best_params = params[actual_model]
 
+            #-----------------------------------mlflow code -----------------------------
             mlflow.set_registry_uri("https://dagshub.com/Rahul-404/mlproject.mlflow")
             tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
 
-            # mlflow
+            # mlflow code starts
             with mlflow.start_run():
 
                 predicted_qualities = best_model.predict(X_test)
@@ -144,6 +146,8 @@ class ModelTrainer:
                     mlflow.sklearn.log_model(best_model, 'model', registered_model_name=actual_model)
                 else:
                     mlflow.sklearn.log_model(best_model, "model")
+            # mlflow code ends
+            #-----------------------------------mlflow code -----------------------------
 
             if beat_model_score<0.6:
                 raise CustomeException("No best model found")
@@ -159,5 +163,6 @@ class ModelTrainer:
             r2_square = r2_score(y_test, predicted)
 
             return r2_square
+        
         except Exception as e:
             raise CustomeException(e, sys)
