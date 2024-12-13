@@ -12,6 +12,9 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from src.mlproject.pipeline.prediction_pipeline import CustomData, PredictPipeline
 
+os.putenv('LANG', 'en_US.UTF-8')
+os.putenv('LC_ALL', 'en_US.UTF-8')
+
 application=Flask(__name__)
 
 app = application
