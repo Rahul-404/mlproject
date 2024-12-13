@@ -54,9 +54,9 @@ mlproject/
 │
 ├── src/
 │   └── mlproject/
-│       ├── __init__.py                      # Initialization of the project package
+│       ├── __init__.py                     # Initialization of the project package
 │       ├── components/
-│       │   ├── __init__.py                  # Component initialization
+│       │   ├── __init__.py                 # Component initialization
 │       │   ├── data_ingestion.py           # Data ingestion logic
 │       │   ├── data_transformation.py      # Data transformation/feature engineering
 │       │   ├── model_trainer.py            # Model training pipeline
